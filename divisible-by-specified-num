@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class DivisibleArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int divisor = sc.nextInt();
+
+        List<Integer> divisibleElements = new ArrayList<>();
+        int sum = 0;
+
+        for (int x : arr) {
+            if (x % divisor == 0) {
+                divisibleElements.add(x);
+                sum += x;
+            }
+        }
+
+        int count = divisibleElements.size();
+
+        if (!divisibleElements.isEmpty()) {
+            System.out.print("The elements that are divisible by " + divisor + " is ");
+            for (int x : divisibleElements) {
+                System.out.print(x + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("No elements are divisible by " + divisor);
+        }
+
+        System.out.println("The Count of the value that is divisible by " + divisor + " is " + count);
+        System.out.println("The Sum of value that is divisible by " + divisor + " is " + sum);
+
+        sc.close();
+    }
+}
